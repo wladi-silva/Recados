@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+<meta charset="UTF-8">
+<title>Recados APP</title>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-wrapper" style="background-image: linear-gradient(180deg, rgba(0, 255, 149, 0.548), rgba(0, 255, 98, 0.63));">
+            <h4 style="font-family: 'Meow Script', cursive; margin-top: 15px;" class="brand-logo center">Deixe seu recado</h4>    
+            <div class="grid-example col s12 m6 right">
+                <ul>
+                    <li><a href="https://www.instagram.com/_wladisilva/"><i class="material-icons left">message</i> Instagram</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=5571985247641&text=Informe%20sua%20mensagem."><i class="material-icons left">phone</i>WhatsApp</a></li>
+                </ul>        
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+    
+        <ul th:each="usuario : ${usuario}">
+            <li>
+                <div class="col s12 m7">
+                    <h7 class="header"><b><span th:text="${usuario.nome}"></span></b></h7>
+                    <div class="card horizontal">
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p><span th:text="${usuario.mensagem}"></span></p>
+                            </div>      
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    
+        <div class="container">
+            <div class="col s12 m4 l8">
+                <form method="post">
+                    <div class="row">
+    
+                        <div class="input-field col s3" >
+                            <i class="material-icons prefix">account_circle</i>
+                            <input type="text" id="autocomplete-input" class="autocomplete" name="nome" required>
+                            <label for="autocomplete-input">Nome</label>
+                        </div>
+    
+                        <div class="input-field col s7">
+                            <input id="icon_prefix" type="text" class="validate" value="" name="mensagem" required>
+                            <label for="icon_prefix">Digite uma mensagem</label>
+                        </div>
+    
+                        <div class="input-field col s2">
+                            <button type="submit" class="btn waves-effect waves-light btn-small">Enviar</button>
+                        </div>
+    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
